@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "271153657452",
+    "project_id": "capstone-project-ch2-ps430",
+    "storage_bucket": "capstone-project-ch2-ps430.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271153657452:android:6fdf4e38234e09172c4a49",
+        "android_client_info": {
+          "package_name": "com.example.handsight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271153657452-dde93g5uvtft2tltffrnuso0lgudm6fa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.handsight",
+            "certificate_hash": "af82c03d3b84b3cf74401dae18f4cb4bd4c00eea"
+          }
+        },
+        {
+          "client_id": "271153657452-nseqn9d3cm8v0d6hkahnn4581u9sau07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkC43QEkBdLpLs_iTf8i3OFCrT9WDeq3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271153657452-nseqn9d3cm8v0d6hkahnn4581u9sau07.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
