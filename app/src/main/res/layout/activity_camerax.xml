@@ -6,65 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".CameraActivity">
 
-
     <androidx.camera.view.PreviewView
         android:id="@+id/viewFinder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="44dp" >
+        android:layout_height="match_parent"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <Button
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/shape_rounded"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="16dp"
+            android:layout_margin="16dp">
+
+            <ImageButton
                 android:id="@+id/btn_menu"
-                android:layout_width="31dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:background="@drawable/ic_menu"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:backgroundTint="@color/white"/>
 
-            <Button
+            <ImageButton
+                android:id="@+id/btn_sound"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sound_checkable"/>
+
+            <ImageButton
                 android:id="@+id/switchCamera"
-                android:layout_width="40dp"
-                android:layout_height="36dp"
-                android:layout_marginTop="472dp"
-                android:layout_marginEnd="28dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/ic_switch_camera"/>
 
-            <Button
-                android:id="@+id/btn_sound"
-                android:layout_width="29dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="628dp"
-                android:layout_marginEnd="28dp"
-                android:background="@drawable/ic_sound_on"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center"
+            android:background="@drawable/shape_background_gradient"
+            android:paddingVertical="80dp">
 
             <TextView
+                android:id="@+id/tv_result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="560dp"
-                android:background="@color/light_transparan"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="32sp"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="28dp"
-                tools:text="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                android:text=""/>
 
+        </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.camera.view.PreviewView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

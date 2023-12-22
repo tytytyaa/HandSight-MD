@@ -7,6 +7,9 @@
     <color name="sea">#AEE2FF</color>
     <color name="light">#E6FFFD</color>
     <color name="navy">#265073</color>
+    <color name="green">#2D9596</color>
+    <color name="gre">#9AD0C2</color>
     <color name="light_transparan">#A6E6FFFD</color>
+    <color name="black_25">#40000000</color>
 
 </resources>

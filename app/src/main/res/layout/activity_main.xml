@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@color/teal">
+    android:background="@color/sage">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,22 +14,22 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingVertical="20dp"
-        android:background="@color/teal">
+        android:background="@color/sage">
 
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="230dp"
-            android:src="@drawable/logo"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/logoo"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/berkshire_swash"
-            android:paddingTop="0dp"
+            android:paddingTop="25dp"
             android:text="@string/app_name"
             android:textColor="@color/navy"
-            android:textSize="50sp"
+            android:textSize="40sp"
             />
     </LinearLayout>
 
@@ -44,9 +44,9 @@
         android:layout_height="wrap_content"
         android:text="Welcome to HandSight"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textColor="@color/navy"
-        android:paddingVertical="70dp"
+        android:paddingVertical="50dp"
         android:fontFamily="@font/berkshire_swash"/>
 
         <Button
@@ -54,17 +54,17 @@
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:text="Sign In with Google"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@color/navy"
             android:fontFamily="@font/amethysta"
             android:layout_gravity="center"
-            android:backgroundTint="@color/sea"
+            android:backgroundTint="@color/sage"
             android:layout_marginTop="16dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sign In your Google to Continue"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:fontFamily="@font/amethysta"
             android:gravity="center"
             android:paddingVertical="8dp"/>
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="from HandSight"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:fontFamily="@font/amethysta"
             android:textColor="@color/navy"
             android:gravity="center|bottom"

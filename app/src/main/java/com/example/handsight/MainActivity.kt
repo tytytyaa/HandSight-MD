@@ -14,13 +14,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var btnGoogle: Button
-    lateinit var googleSignInClient : GoogleSignInClient
-    lateinit var progressDialog : ProgressDialog
+    private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var progressDialog: ProgressDialog
 
-    var firebaseAuth = FirebaseAuth.getInstance()
+    private var firebaseAuth = FirebaseAuth.getInstance()
 
-    companion object{
+    companion object {
         private const val RC_SIGN_IN = 10001
     }
 
@@ -30,10 +31,11 @@ class MainActivity : AppCompatActivity() {
         // Periksa apakah pengguna sudah masuk (signed in)
         val currentUser = firebaseAuth.currentUser
         if (currentUser != null) {
-            // Pengguna sudah masuk, buka MainActivity
-            val mainActivityIntent = Intent(this, CameraActivity::class.java)
-            startActivity(mainActivityIntent)
-            finish() // Optional: Menutup aktivitas saat ini agar tidak dapat kembali ke halaman login
+            val intent = Intent(this, CameraActivity::class.java)
+            val bundle = Bundle()
+            bundle.putString("uid", currentUser.uid)
+            intent.putExtras(bundle)
+            startActivity(intent)
         }
     }
 
@@ -54,37 +56,42 @@ class MainActivity : AppCompatActivity() {
 
         btnGoogle.setOnClickListener {
             val signInIntent = googleSignInClient.signInIntent
-            startActivityForResult(signInIntent,RC_SIGN_IN)
+            startActivityForResult(signInIntent, RC_SIGN_IN)
         }
     }
+
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN){
+        if (requestCode == RC_SIGN_IN) {
             //MENANGANI PROSES LOGIN GOOGLE
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 //JIKA Berhasil
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: ApiException){
+            } catch (e: ApiException) {
                 e.printStackTrace()
                 Toast.makeText(applicationContext, e.localizedMessage, Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    fun firebaseAuthWithGoogle(idToken: String){
+    private fun firebaseAuthWithGoogle(idToken: String) {
         progressDialog.show()
-        val credentian = GoogleAuthProvider.getCredential(idToken, null)
-        firebaseAuth.signInWithCredential(credentian)
+        val credentials = GoogleAuthProvider.getCredential(idToken, null)
+        firebaseAuth.signInWithCredential(credentials)
             .addOnSuccessListener {
-                startActivity(Intent(this, CameraActivity::class.java))
+                val intent = Intent(this, CameraActivity::class.java)
+                val bundle = Bundle()
+                bundle.putString("uid", it.user?.uid)
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
             .addOnFailureListener { error ->
                 Toast.makeText(this, error.localizedMessage, Toast.LENGTH_SHORT).show()
             }
-            .addOnCompleteListener{
+            .addOnCompleteListener {
                 progressDialog.dismiss()
             }
     }
